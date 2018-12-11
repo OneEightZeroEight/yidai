@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './style/home.less';
+//路由配置参数
+import { Route} from "react-router-dom";
 
+import Home from './components/home/home.jsx';
+import List from './components/list/list.jsx';
+import Login from './components/my/login.jsx';
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+            <Route path="/Home/" exact component={Home} />
+            <Route path="/List/" component={List} />
+            <Route path="/Login/" component={Login} />
+            </div>
+        );
+    }
 }
 
 export default App;
+//app做为父组件，在这里引入其他的子组件
